@@ -1,0 +1,26 @@
+[
+  {
+    "testName": "TC_06 : Negative :: Should assert empty form validation",
+    "expectedErrors": [
+      "Bank URL is required",
+      "Username is required.",
+      "Password is required."
+    ]
+  },
+  
+  {
+    "testName": "TC_07 : Negative :: Should assert for no account added",
+    "expectedErrors": [" Please add at least one account. "]
+  },
+
+  {
+    "testName": "TC_08 : Negative :: Should assert for  bank account details fields empty",
+    "expectedErrors": [" Account Name is required. ", " Account Number is required. "]
+  },
+
+  {
+    "testName": "TC_09 : Negative :: Should assert for  BankId null",
+    "expectedErrors": ["bankId must not be null"]
+  }
+
+]
