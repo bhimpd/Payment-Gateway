@@ -1,14 +1,9 @@
 import { Page, Locator, expect } from "@playwright/test";
-import { Helper } from "../utils/helper";
-    
+import { BasePage } from "./Basepage";
 import { ModalMessages, SuccessMessages, ButtonLabels, NoRowDataText, deleteModal,errorMessage } from "../utils/constant";
 
 
-export class CredentialSetupPage{
-    readonly page:Page;
-    readonly helper:Helper;
-    readonly searchParameterSelector:Locator;
-    readonly credentialSetupSelector:Locator;
+export class CredentialSetupPage extends BasePage{
     readonly credentialSetupLabelSelector: Locator;
     readonly createButtonSelector:Locator;
     readonly bankNameSelector:Locator;
@@ -58,10 +53,7 @@ export class CredentialSetupPage{
 
 
     constructor(page:Page){
-        this.page = page;
-        this.helper = new Helper(page);
-        this.searchParameterSelector = page.locator("#searchMenuByCode");
-        this.credentialSetupSelector = page.locator("a[href='#menu5']");
+        super(page);
         this.credentialSetupLabelSelector = page.locator("h6.mb-2");
         this.createButtonSelector = page.locator("#createBtn");
         this.bankNameSelector = page.locator("label[for='bankName']");
@@ -113,18 +105,6 @@ export class CredentialSetupPage{
 
     async clickSearchParameter(){
         await this.searchParameterSelector.click();
-    }
-
-    async SearchNClickMenu(expectedText:any){
-        await this.helper.fillSearchParameterNClick(this.searchParameterSelector,expectedText)
-    }
-
-    async assertCredentialSetupMenuText(expectedText:any){
-        await this.helper.assertText(this.credentialSetupSelector,expectedText)
-    }
-
-    async clickCredentialSetupMenu(){
-        await this.credentialSetupSelector.click();
     }
 
     async assertCredentialSetupPageText(expectedText:any ){
