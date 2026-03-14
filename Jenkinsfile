@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     environment {
-        PG_BASEURL = 'http://pg.infodev.com.np'
-        PG_USERNAME = 'bhimSuperAdmin'
-        PG_PASSWORD = 'bhimSuperAdmin'
-        BANK_BASEURL='http://banking.infodev.com.np'
-        BANK_USERNAME='bhimclient'
-        BANK_PASSWORD='bhim1client'
+        PG_BASEURL = 'http://www.testpg.np'
+        PG_USERNAME = 'testpg'
+        PG_PASSWORD = 'testpg'
+        BANK_BASEURL='http://www.testbank.com.np'
+        BANK_USERNAME='testbank'
+        BANK_PASSWORD='testbank'
     }
 
     stages {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from GitLab...'
-                git branch: 'bhim-branch', url: 'http://192.168.50.225/bhim.lamichhane/pg.git'
+                git branch: 'test-branch', url: 'http://test.gitrepo/pgtest.git'
             }
         }
 
