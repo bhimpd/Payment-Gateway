@@ -2,7 +2,25 @@
   "name": "test",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "all_tests": "playwright test tests/* --reporter=allure-playwright",
+    "all_tests:headed": "playwright test --headed",
+    "all_tests:ui": "playwright test --ui",
+    "login_test": "playwright test tests/login --reporter=allure-playwright",
+    "login_test:headed": "playwright test tests/login --headed",
+    "login_test:ui": "playwright test tests/login --ui",
+    "credential_setup_test": "playwright test tests/credential_setup --reporter=allure-playwright",
+    "credential_setup_test:headed": "playwright test tests/credential_setup --headed",
+    "credential_setup_test:ui": "playwright test tests/credential_setup --ui",
+    "global_transaction_test": "playwright test tests/global_transaction_limit_setup --reporter=allure-playwright",
+    "global_transaction_test:headed": "playwright test tests/global_transaction_limit_setup --headed",
+    "global_transaction_test:ui": "playwright test tests/global_transaction_limit_setup --ui",
+    "clean:reports": "rimraf playwright-report allure-results allure-report",
+    "report:html": "playwright show-report",
+    "ci": "playwright test --reporter=allure-playwright",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:open": "allure open allure-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,7 +28,8 @@
   "devDependencies": {
     "@playwright/test": "^1.54.2",
     "@types/node": "^24.3.0",
-    "allure-playwright": "^3.3.3"
+    "allure-playwright": "^3.3.3",
+    "rimraf": "^6.1.2"
   },
   "dependencies": {
     "@faker-js/faker": "^9.9.0",
